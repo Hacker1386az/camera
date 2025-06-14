@@ -1,1 +1,156 @@
 
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Camera Image</title>
+<style>
+    /* Reset and base */
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        /* transparent to see background */
+        background: transparent;
+    }
+
+    /* Blurred flag background container */
+    .flag-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        overflow: hidden;
+        filter: blur(60px);
+        /* prevent blur artifact on edges */
+        transform: translateZ(0);
+    }
+
+    /* The three color bands stacked vertically */
+    .flag-band {
+        width: 100%;
+        height: 33.3333%; /* equal height */
+    }
+
+    .flag-green {
+        background-color: #008C4E; /* Iran flag green */
+    }
+
+    .flag-white {
+        background-color: #FFFFFF; /* White */
+    }
+
+    .flag-red {
+        background-color: #C8102E; /* Iran flag red */
+    }
+
+    /* Content styles */
+    h1 {
+        margin-bottom: 20px;
+        color: brown;
+        z-index: 1;
+    }
+	h2{
+		color: #000c8c;
+	}
+
+    p {
+        z-index: 1;
+    }
+
+    img {
+        max-width: 80%;
+        height: auto;
+        border: 2px solid #333;
+        border-radius: 8px;
+        transition: transform 0.2s;
+        position: relative;
+        z-index: 1;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+        z-index: 1;
+        position: relative;
+    }
+
+    .zoom-in {
+        transform: scale(1.5);
+    }
+
+    .zoom-out {
+        transform: scale(1);
+    }
+
+    /* Fixed position for zoom buttons */
+    .zoom-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        margin: 10px 0 0 10px;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+    }
+
+    .zoom-button:hover {
+        background-color: #0056b3;
+    }
+
+</style>
+</head>
+<body>
+    <!-- Blurred Flag Background -->
+    <div class="flag-background" aria-hidden="true">
+        <div class="flag-band flag-green"></div>
+        <div class="flag-band flag-white"></div>
+        <div class="flag-band flag-red"></div>
+    </div>
+
+    
+    <h1>هک شده توسط تیم هکری عقرب</h1>
+    <img id="cameraImage" src="http://82.102.164.18/record/current.jpg?rand=585746" alt="Camera Image" />
+    <button onclick="reloadImage()">بارگذاری مجدد تصویر</button>
+
+    <h2>فرمانده تیم هکری عقرب mhmd-error</h2>
+  
+
+<script>
+function reloadImage() {
+    const img = document.getElementById('cameraImage');
+    img.src = "http://82.102.164.18/record/current.jpg?rand=" + Math.random();
+}
+
+function zoomIn() {
+    const img = document.getElementById('cameraImage');
+    img.classList.add('zoom-in');
+    img.classList.remove('zoom-out');
+}
+
+function zoomOut() {
+    const img = document.getElementById('cameraImage');
+    img.classList.remove('zoom-in');
+    img.classList.add('zoom-out');
+}
+</script>
+</body>
+</html>
+
