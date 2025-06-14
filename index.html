@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -17,7 +16,6 @@
         justify-content: center;
         align-items: center;
         z-index: 1;
-        /* transparent to see background */
         background: transparent;
     }
 
@@ -31,26 +29,25 @@
         z-index: -1;
         overflow: hidden;
         filter: blur(60px);
-        /* prevent blur artifact on edges */
         transform: translateZ(0);
     }
 
     /* The three color bands stacked vertically */
     .flag-band {
         width: 100%;
-        height: 33.3333%; /* equal height */
+        height: 33.3333%;
     }
 
     .flag-green {
-        background-color: #008C4E; /* Iran flag green */
+        background-color: #008C4E;
     }
 
     .flag-white {
-        background-color: #FFFFFF; /* White */
+        background-color: #FFFFFF;
     }
 
     .flag-red {
-        background-color: #C8102E; /* Iran flag red */
+        background-color: #C8102E;
     }
 
     /* Content styles */
@@ -59,9 +56,13 @@
         color: brown;
         z-index: 1;
     }
-	h2{
-		color: #000c8c;
-	}
+    
+    h2 {
+        color: #000c8c;
+    }
+    h3{
+        color:#007BFF;
+    }
 
     p {
         z-index: 1;
@@ -115,6 +116,24 @@
         background-color: #0056b3;
     }
 
+    /* Styles for the link */
+    a {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 15px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #28a745; /* Green background */
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    a:hover {
+        background-color: #218838; /* Darker green on hover */
+        transform: scale(1.05); /* Slightly enlarge on hover */
+    }
+
 </style>
 </head>
 <body>
@@ -125,13 +144,13 @@
         <div class="flag-band flag-red"></div>
     </div>
 
-    
     <h1>هک شده توسط تیم هکری عقرب</h1>
     <img id="cameraImage" src="http://82.102.164.18/record/current.jpg?rand=585746" alt="Camera Image" />
     <button onclick="reloadImage()">بارگذاری مجدد تصویر</button>
 
+    <h3>درصورت باز نشدن اینجا کلیک کنید.</h3>
+    <a href="http://82.102.164.18/record/current.jpg?rand=585987">مشاهده مستقیم دوربین مداربسته هک شده توسط تیم هکری عقرب</a>
     <h2>فرمانده تیم هکری عقرب mhmd-error</h2>
-  
 
 <script>
 function reloadImage() {
@@ -153,4 +172,3 @@ function zoomOut() {
 </script>
 </body>
 </html>
-
